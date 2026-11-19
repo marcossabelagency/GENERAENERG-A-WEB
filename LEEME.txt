@@ -1,44 +1,56 @@
-GENERA ENERGÍA · WEB (Home) · versión del 19/11/2026
-====================================================
+GENERA ENERGÍA · WEB V1 · 19/11/2026
+====================================
 
 QUÉ HAY AQUÍ
-  index.html ............ La Home completa (HTML, estilos y animaciones en un solo archivo).
-                          Necesita las carpetas assets/ y fonts/ a su lado.
-  assets/ ............... Logos usados por la web (horizontal negativo, vertical negativo, símbolo).
-  fonts/ ................ Michroma (titulares) y Saira (texto).
-  marca/logos/ .......... Todas las versiones del logo, con fondo transparente.
-  sistema-de-marca/ ..... Sistema de marca: tokens.json (colores, tipografía, espaciados, sombras,
-                          animaciones), componentes con vista previa y README con la guía de uso.
+  index.html ................. Home
+  equipo.html ................ Equipo (Jorge, valores, cómo trabajamos, equipo)
+  trabajo.html ............... Nuestro trabajo (3 destacados, 4 proyectos más, antes/después)
+  proyecto-vivienda.html ..... Proyecto destacado: vivienda
+  proyecto-empresa.html ...... Proyecto destacado: empresa
+  proyecto-comunidad.html .... Proyecto destacado: comunidad
+  contacto.html .............. Contacto (WhatsApp, teléfono, formulario, zona de trabajo)
+  aviso-legal.html ........... Aviso legal y condiciones de uso
+  privacidad.html ............ Política de privacidad
+  assets/, fonts/ ............ Logos y tipografías (Michroma y Saira). Deben ir junto a los HTML.
+  marca/logos/ ............... Todas las versiones del logo con fondo transparente.
+  sistema-de-marca/ .......... Tokens (colores, tipografía, espaciados...), componentes y guía.
+  GENERA-ENERGIA-WEB-V1.html . (solo en la copia de seguridad) Toda la web en un único archivo
+                               para enviar al cliente: se abre con doble clic y se navega entera.
 
-SECCIONES DE LA HOME
-  Nav · Hero · Cinta de pueblos · Servicios · Nuestro trabajo · Opiniones (reseñas) ·
-  Calculadora (espacio reservado) · Contacto + FAQs · Footer · Botón WhatsApp flotante
+IDIOMAS
+  Cada página lleva su traducción al inglés al final del archivo, en el bloque
+  "Traducción ES / EN" (diccionario EN). Si cambias un texto en español, cambia también
+  su entrada en ese diccionario; si no, ese texto se quedará en español en la versión inglesa.
+  En las páginas legales, la versión inglesa está escrita aparte dentro de la propia página.
 
-DÓNDE CAMBIAR COSAS (busca en index.html)
+DÓNDE CAMBIAR COSAS (busca en los HTML)
   Teléfono .............. "616 28 39 92" y "tel:+34616283992"
   Correo ................ "jorge@genera-energia.net"
-  WhatsApp .............. id="wa" (href="#", pendiente de conectar: poner https://wa.me/34XXXXXXXXX)
-  Fotos del portafolio .. "work__ph": sustituir cada <div class="work__ph">…</div> por
-                          <img src="assets/proyecto-01.jpg" alt="Descripción" loading="lazy">
-  Reseñas ............... class="rev" (5 bloques). Nombre, localidad, texto y etiqueta.
-  Valoración Google ..... "5,0"
+  WhatsApp (Contacto) ... "wa.me/34616283992"
+  WhatsApp flotante ..... id="wa" (href="#", pendiente de conectar en todas las páginas)
+  Fotos ................. busca "t-ph" o "work__ph": cada hueco lleva un comentario con qué poner
+  Reseñas (Home) ........ class="rev" (5 bloques) y la valoración "5,0"
   Cifra instalaciones ... data-count="800"
-  FAQs .................. class="q" (6 bloques)
-  Calculadora ........... id="calc-slot" (espacio reservado)
+  FAQs (Home) ........... class="q" (6 bloques)
+  Calculadora (Home) .... id="calc-slot" (espacio reservado)
+  Datos legales ......... texto entre corchetes [ ] en aviso-legal.html y privacidad.html
 
 PENDIENTE
   · Reseñas y valoración 5,0 INVENTADAS: sustituir por reseñas reales de Google antes de publicar.
-  · Fotos de 4-5 instalaciones para "Nuestro trabajo".
+  · Fotos: Home (5 proyectos), Equipo (equipo, Jorge, 4 miembros), Nuestro trabajo (7 proyectos,
+    antes/después) y 3 fotos en cada subpágina de proyecto.
+  · Textos de ejemplo a validar con Jorge: cita y bio de Jorge, nombres y puestos del equipo,
+    casos de los 3 proyectos destacados, proyectos 04-07, "estudio gratuito", "papeleo incluido",
+    "un solo interlocutor", "seguimiento después" y respuestas de las FAQs.
   · Calculadora de ahorro: falta que Jorge defina qué datos pedir.
-  · Conectar el botón de WhatsApp.
-  · Formulario de contacto: ahora abre el correo del visitante; conectar a un servicio
-    (Formspree, Netlify Forms…) para recibirlo directamente.
-  · Link "Equipo" y páginas legales (Aviso legal, Privacidad, Cookies) apuntan a "#".
-  · Confirmar con Jorge: "estudio gratuito", "papeleo incluido", "un solo interlocutor",
-    "seguimiento después" y las respuestas de las FAQs.
+  · Confirmar que +34 616 28 39 92 tiene WhatsApp y conectar el botón flotante.
+  · Formularios (Home y Contacto): ahora abren el correo del visitante. Conectar a un servicio
+    (Formspree, Netlify Forms…) para recibirlos directamente.
+  · Legales: completar los datos entre corchetes, quitar el contador/interruptor de "datos por
+    completar" y revisarlos con un profesional. Falta la página de Cookies (enlace en "#").
   · Logos en vectorial (SVG/AI/PDF) para tamaños grandes o impresión.
+  · Al publicar en el dominio: revisar que las rutas entre páginas funcionan en el hosting.
 
 CÓMO RESTAURAR O RETOMAR
   Adjunta el zip en una conversación con Claude y pide "vuelve a publicar esta versión"
-  o "sigue desde aquí". Para verla, abre genera-energia-home.html (copia de un solo archivo)
-  o index.html con sus carpetas.
+  o "sigue desde aquí".

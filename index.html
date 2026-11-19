@@ -99,6 +99,13 @@ h1,h2,h3,h4,p{margin:0}
 .nav__links a:hover,.nav__links a.is-active{color:#fff;background:rgba(255,255,255,.07)}
 .nav__links a.is-active{box-shadow:inset 0 -2px 0 var(--lime)}
 .nav__cta{flex:none}
+.nav__right{display:flex;align-items:center;gap:10px;flex:none}
+.lang{position:relative;display:inline-flex;padding:4px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04)}
+.lang button{position:relative;z-index:1;width:40px;height:34px;border:0;border-radius:9px;background:none;color:#d8d8d2;font-size:12px;font-weight:700;letter-spacing:.12em;cursor:pointer;transition:color .3s}
+.lang button:hover{color:#fff}
+.lang button[aria-pressed="true"]{color:var(--ink)}
+.lang__ind{position:absolute;top:4px;left:4px;width:40px;height:34px;border-radius:9px;background:var(--lime);box-shadow:0 6px 18px -8px rgba(182,204,0,.8);transition:transform .45s var(--ease)}
+.lang[data-lang="en"] .lang__ind{transform:translateX(40px)}
 .nav__burger{display:none;width:48px;height:48px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);cursor:pointer;place-items:center}
 .nav__burger span{display:block;width:20px;height:2px;background:#fff;border-radius:2px;transition:transform .4s var(--ease),opacity .2s}
 .nav__burger span+span{margin-top:5px}
@@ -492,7 +499,7 @@ textarea.input{min-height:110px;resize:vertical}
 .sun-lbl{fill:#a3a39c;font-family:var(--sans);font-size:12px;font-variant-numeric:tabular-nums}
 .foot__giant{position:relative;margin-top:clamp(48px,6vw,80px);user-select:none}
 .foot__word{display:block;font-family:var(--display);font-size:calc(var(--cw) / 6.2);line-height:.82;letter-spacing:0;text-align:center;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.16);background:radial-gradient(380px circle at var(--fx,50%) var(--fy,40%),#b6cc00 0%,#5bb040 30%,rgba(12,103,78,.6) 55%,rgba(255,255,255,.05) 75%);-webkit-background-clip:text;background-clip:text;padding-bottom:.06em}
-.foot__legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:24px 0 max(28px,env(safe-area-inset-bottom));border-top:1px solid var(--d-line);font-size:13px;color:var(--d-muted)}
+.foot__legal{position:relative;z-index:2;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:24px 96px max(28px,env(safe-area-inset-bottom)) 0;border-top:1px solid var(--d-line);font-size:13px;color:var(--d-muted)}
 .foot__legal ul{display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none;margin:0;padding:0}
 .foot__legal a{text-decoration:none}
 .foot__legal a:hover{color:#fff}
@@ -502,10 +509,10 @@ textarea.input{min-height:110px;resize:vertical}
 /* =========================================================
    WHATSAPP FLOTANTE
    ========================================================= */
-.wa{position:fixed;z-index:70;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px;text-decoration:none}
+.wa{pointer-events:none;position:fixed;z-index:70;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px;text-decoration:none}
 .wa__label{padding:9px 14px;border-radius:999px;background:#000;color:#fff;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.12);box-shadow:var(--sh2d);opacity:0;transform:translateX(10px);transition:opacity .3s,transform .4s var(--ease);pointer-events:none;white-space:nowrap}
 .wa:hover .wa__label,.wa:focus-visible .wa__label{opacity:1;transform:none}
-.wa__btn{position:relative;display:grid;place-items:center;width:60px;height:60px;border-radius:20px 6px 20px 6px;background:var(--lime);color:var(--ink);box-shadow:var(--glow),0 12px 30px -10px rgba(0,0,0,.5);transition:transform .4s var(--ease)}
+.wa__btn{pointer-events:auto;position:relative;display:grid;place-items:center;width:60px;height:60px;border-radius:20px 6px 20px 6px;background:var(--lime);color:var(--ink);box-shadow:var(--glow),0 12px 30px -10px rgba(0,0,0,.5);transition:transform .4s var(--ease)}
 .wa__btn::before{content:"";position:absolute;inset:-6px;border-radius:24px 8px 24px 8px;border:2px solid rgba(182,204,0,.55);animation:waP 2.6s var(--ease) infinite}
 @keyframes waP{0%{opacity:.9;transform:scale(.9)}100%{opacity:0;transform:scale(1.25)}}
 .wa:hover .wa__btn{transform:translateY(-3px) rotate(-6deg)}
@@ -587,23 +594,24 @@ textarea.input{min-height:110px;resize:vertical}
     <a class="nav__logo on-dark" href="#top" aria-label="Genera Energía, inicio"><img src="assets/genera-logo-horizontal-negativo.png" alt="Genera Energía" width="367" height="235"></a>
     <nav aria-label="Principal">
       <ul class="nav__links">
-        <li><a class="on-dark" href="#" data-todo="pagina-equipo">Equipo</a></li>
-        <li><a class="on-dark" href="#servicios">Servicios</a></li>
-        <li><a class="on-dark" href="#trabajo">Nuestro trabajo</a></li>
-        <li><a class="on-dark" href="#contacto">Contacto</a></li>
+        <li><a class="on-dark" href="equipo.html">Equipo</a></li>
+        <li><a class="on-dark" href="trabajo.html">Nuestro trabajo</a></li>
+        <li><a class="on-dark" href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
+    <div class="nav__right">
+    <div class="lang on-dark" id="lang" data-lang="es" role="group" aria-label="Cambiar idioma"><span class="lang__ind" aria-hidden="true"></span><button type="button" class="on-dark" data-l="es" aria-pressed="true" lang="es" aria-label="Español">ES</button><button type="button" class="on-dark" data-l="en" aria-pressed="false" lang="en" aria-label="English">EN</button></div>
     <a class="btn btn--accent btn--sm nav__cta" href="#contacto">Estudio gratuito <span class="btn__ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     <button class="nav__burger on-dark" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
     <div class="nav__progress" id="progress"></div>
   </div>
 </header>
 <div class="menu" id="menu" aria-hidden="true">
   <ol>
-    <li><a href="#" data-todo="pagina-equipo">Equipo</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#trabajo">Nuestro trabajo</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="equipo.html">Equipo</a></li>
+    <li><a href="trabajo.html">Nuestro trabajo</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
   </ol>
   <div class="menu__foot"><a href="tel:+34616283992">+34 616 28 39 92</a><a href="mailto:jorge@genera-energia.net">jorge@genera-energia.net</a></div>
 </div>
@@ -783,6 +791,38 @@ textarea.input{min-height:110px;resize:vertical}
   </div>
 </section>
 
+<!-- ============ CALCULADORA (espacio reservado) ============ -->
+<section class="sec light-2" id="calculadora" aria-labelledby="calcTitle">
+  <div class="wrap calc">
+    <div class="calc__copy rv">
+      <span class="eyebrow">Calculadora de ahorro</span>
+      <h2 class="h2" id="calcTitle">¿Cuánto podrías <span class="hl">ahorrar</span> con el sol?</h2>
+      <p class="lead muted">Muy pronto podrás calcular aquí tu ahorro estimado en unos minutos, respondiendo a unas pocas preguntas sobre tu casa.</p>
+      <ol class="steps">
+        <li>Cuéntanos cómo es tu casa</li>
+        <li>Indica tu consumo o tu factura</li>
+        <li>Recibe tu ahorro estimado al momento</li>
+      </ol>
+      <a class="btn" href="#contacto">Mientras tanto, pide tu estudio <span class="btn__ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+    <div class="slot rv" data-rv="scale" style="--i:1">
+      <div class="slot__plate"></div>
+      <div class="slot__front" id="calc-slot">
+        <span class="slot__badge"><span class="dot"></span>Próximamente</span>
+        <!-- ESPACIO RESERVADO: aquí irá la calculadora de ahorro cuando Jorge defina los datos a pedir -->
+        <div class="slot__area" aria-label="Espacio reservado para la calculadora de ahorro">
+          <div class="sk-bar"><span></span></div>
+          <div class="sk" style="height:22px;width:55%"></div>
+          <div class="sk" style="height:14px;width:80%"></div>
+          <div class="sk-opts"><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>
+          <div class="sk" style="height:52px;width:100%"></div>
+          <p class="slot__label"><strong>Calculadora de ahorro</strong>Espacio reservado</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PORTAFOLIO ============ -->
 <section class="sec dark work-sec" id="trabajo" aria-labelledby="workTitle">
   <div class="work-sec__bg" aria-hidden="true"><div class="orb orb--1"></div><div class="orb orb--2"></div></div>
@@ -865,38 +905,6 @@ textarea.input{min-height:110px;resize:vertical}
   <div class="rev-ticker" aria-hidden="true"><div class="rev-ticker__track"><div class="rev-ticker__g"><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Muy profesionales</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Puntuales</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Todo el papeleo incluido</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Precio cerrado</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Trato cercano</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Lo recomiendo</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Todo limpio y recogido</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Explicaciones claras</span></div><div class="rev-ticker__g"><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Muy profesionales</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Puntuales</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Todo el papeleo incluido</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Precio cerrado</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Trato cercano</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Lo recomiendo</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Todo limpio y recogido</span><span class="rev-ticker__i"><span class="rev-stars"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>Explicaciones claras</span></div></div></div>
 </section>
 
-<!-- ============ CALCULADORA (espacio reservado) ============ -->
-<section class="sec light-2" id="calculadora" aria-labelledby="calcTitle">
-  <div class="wrap calc">
-    <div class="calc__copy rv">
-      <span class="eyebrow">Calculadora de ahorro</span>
-      <h2 class="h2" id="calcTitle">¿Cuánto podrías <span class="hl">ahorrar</span> con el sol?</h2>
-      <p class="lead muted">Muy pronto podrás calcular aquí tu ahorro estimado en unos minutos, respondiendo a unas pocas preguntas sobre tu casa.</p>
-      <ol class="steps">
-        <li>Cuéntanos cómo es tu casa</li>
-        <li>Indica tu consumo o tu factura</li>
-        <li>Recibe tu ahorro estimado al momento</li>
-      </ol>
-      <a class="btn" href="#contacto">Mientras tanto, pide tu estudio <span class="btn__ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    </div>
-    <div class="slot rv" data-rv="scale" style="--i:1">
-      <div class="slot__plate"></div>
-      <div class="slot__front" id="calc-slot">
-        <span class="slot__badge"><span class="dot"></span>Próximamente</span>
-        <!-- ESPACIO RESERVADO: aquí irá la calculadora de ahorro cuando Jorge defina los datos a pedir -->
-        <div class="slot__area" aria-label="Espacio reservado para la calculadora de ahorro">
-          <div class="sk-bar"><span></span></div>
-          <div class="sk" style="height:22px;width:55%"></div>
-          <div class="sk" style="height:14px;width:80%"></div>
-          <div class="sk-opts"><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>
-          <div class="sk" style="height:52px;width:100%"></div>
-          <p class="slot__label"><strong>Calculadora de ahorro</strong>Espacio reservado</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ CONTACTO + FAQ ============ -->
 <section class="sec light" id="contacto" aria-labelledby="contactTitle">
   <div class="wrap contact">
@@ -947,10 +955,9 @@ textarea.input{min-height:110px;resize:vertical}
 
     <div class="foot__mid">
       <ul class="foot__nav">
-        <li><a href="#" data-todo="pagina-equipo">Equipo</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#trabajo">Nuestro trabajo</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="equipo.html">Equipo</a></li>
+        <li><a href="trabajo.html">Nuestro trabajo</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
       <div class="foot__logo"><img src="assets/genera-logo-vertical-negativo.png" alt="Genera Energía" width="252" height="330"></div>
       <div class="foot__right">
@@ -981,7 +988,7 @@ textarea.input{min-height:110px;resize:vertical}
 
     <div class="foot__legal">
       <span>© <span id="year">2026</span> Genera Energía · Instalación de placas solares en la Marina Alta</span>
-      <ul><li><a href="#">Aviso legal</a></li><li><a href="#">Privacidad</a></li><li><a href="#">Cookies</a></li><li><button class="totop" id="totop" type="button">Volver arriba <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></li></ul>
+      <ul><li><a href="aviso-legal.html">Aviso legal</a></li><li><a href="privacidad.html">Privacidad</a></li><li><a href="#">Cookies</a></li><li><button class="totop" id="totop" type="button">Volver arriba <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></li></ul>
     </div>
   </div>
 </footer>
@@ -992,6 +999,10 @@ textarea.input{min-height:110px;resize:vertical}
   <span class="wa__btn"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3 3z"/><path d="M9.2 8.6c.2-.5.6-.5.9-.5h.4c.2 0 .4 0 .5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5.4.7 1.3 1.7 2.4 2.2.2.1.4.1.5-.1l.5-.6c.2-.2.4-.2.6-.1l1.4.7c.2.1.3.2.3.4 0 .5-.2 1.1-.7 1.4-.5.3-1.4.5-2.6 0-1.6-.6-3.2-2.1-4-3.6-.6-1.2-.4-2.4-.3-3.2z" fill="currentColor" stroke="none"/></svg></span>
 </a>
 
+<script>
+window.GENERA_LANG = (function(){ try { return localStorage.getItem("genera_lang") === "en" ? "en" : "es"; } catch(e){ return "es"; } })();
+function T(es, en){ return window.GENERA_LANG === "en" ? en : es; }
+</script>
 <script>
 (function(){
   "use strict";
@@ -1029,7 +1040,7 @@ textarea.input{min-height:110px;resize:vertical}
     menu.classList.toggle("is-open", open);
     menu.setAttribute("aria-hidden", open ? "false" : "true");
     burger.setAttribute("aria-expanded", open ? "true" : "false");
-    burger.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    burger.setAttribute("aria-label", open ? T("Cerrar menú","Close menu") : T("Abrir menú","Open menu"));
     body.style.overflow = open ? "hidden" : "";
     nav.classList.remove("is-hidden");
   }
@@ -1119,7 +1130,7 @@ textarea.input{min-height:110px;resize:vertical}
     barsEl.innerHTML = out;
     var pct = Math.max(0, Math.round(Math.sin(Math.max(0, elNow) * Math.PI / 180) / Math.sin(elNoon * Math.PI / 180) * 100));
     $("#hudNow").innerHTML = (elNow > 0 ? pct : 0) + "<small>%</small>";
-    $("#hudHours").innerHTML = info.hours.toFixed(1).replace(".", ",") + "<small>h</small>";
+    $("#hudHours").innerHTML = info.hours.toFixed(1).replace(".", T(",", ".")) + "<small>h</small>";
     // Footer: arco del sol
     var x0 = 30, x1 = 330, yH = 120, top = 18;
     var arc = "M" + x0 + " " + yH + " Q 180 " + (yH - 2 * (yH - top)) + " " + x1 + " " + yH;
@@ -1133,19 +1144,20 @@ textarea.input{min-height:110px;resize:vertical}
       var steps = 24, d = "M" + x0 + " " + yH;
       for (var s = 1; s <= steps; s++){ var u = tc * s / steps; d += " L" + ((1-u)*(1-u)*x0 + 2*(1-u)*u*180 + u*u*x1).toFixed(1) + " " + ((1-u)*(1-u)*yH + 2*(1-u)*u*(yH-2*(yH-top)) + u*u*yH).toFixed(1); }
       $("#sunDone").setAttribute("d", d);
-      msg = "El sol está a " + Math.round(elNow) + "° sobre el horizonte. Tus placas estarían produciendo ahora mismo.";
-      sub = "Quedan " + Math.max(0, Math.round((info.set - now) / 6e4 / 60 * 10) / 10).toString().replace(".", ",") + " h de sol hoy.";
+      msg = T("El sol está a " + Math.round(elNow) + "° sobre el horizonte. Tus placas estarían produciendo ahora mismo.", "The sun is " + Math.round(elNow) + "° above the horizon. Your panels would be producing right now.");
+      var hl = Math.max(0, Math.round((info.set - now) / 6e4 / 60 * 10) / 10).toString(); sub = T("Quedan " + hl.replace(".", ",") + " h de sol hoy.", hl + " h of sunlight left today.");
     } else {
       $("#sunDot").style.opacity = 0; $("#sunDone").setAttribute("d", "");
-      msg = "El sol ya se ha puesto. Esta noche, tu batería tomaría el relevo.";
-      sub = "Mañana sale a las " + hhmm(now > info.set ? dayInfo(new Date(now.getTime() + 864e5)).rise : info.rise) + ".";
+      msg = T("El sol ya se ha puesto. Esta noche, tu batería tomaría el relevo.", "The sun has set. Tonight, your battery would take over.");
+      var nr = hhmm(now > info.set ? dayInfo(new Date(now.getTime() + 864e5)).rise : info.rise); sub = T("Mañana sale a las " + nr + ".", (now > info.set ? "Tomorrow it rises at " : "Today it rises at ") + nr + ".");
     }
     $("#sunMsg").textContent = msg; $("#sunSub").textContent = sub;
-    $("#sunRise").textContent = "Amanecer " + hhmm(info.rise);
-    $("#sunSet").textContent = "Atardecer " + hhmm(info.set);
+    $("#sunRise").textContent = T("Amanecer ", "Sunrise ") + hhmm(info.rise);
+    $("#sunSet").textContent = T("Atardecer ", "Sunset ") + hhmm(info.set);
     $("#clock").textContent = "38.84° N · 0.10° E · Dénia · " + hhmm(now);
   }
   renderSun(); setInterval(renderSun, 60000);
+  document.addEventListener("genera:lang", function(){ renderSun(); burger.setAttribute("aria-label", menu.classList.contains("is-open") ? T("Cerrar menú","Close menu") : T("Abrir menú","Open menu")); var fn = $("#formNote"); fn.style.color = ""; fn.textContent = T("Te respondemos lo antes posible. Sin compromiso.", "We'll get back to you as soon as possible. No obligation."); });
   $("#year").textContent = new Date().getFullYear();
 
   /* ---------- Servicios: pestañas + diagrama ---------- */
@@ -1184,7 +1196,7 @@ textarea.input{min-height:110px;resize:vertical}
     function sync(){
       var paused = userPaused || hover || !visible;
       stage.classList.toggle("is-paused", paused);
-      playBtn.setAttribute("aria-label", userPaused ? "Reproducir reseñas" : "Pausar reseñas");
+      playBtn.setAttribute("aria-label", userPaused ? T("Reproducir reseñas","Play reviews") : T("Pausar reseñas","Pause reviews"));
     }
     function layout(){
       cards.forEach(function(c, i){
@@ -1228,6 +1240,7 @@ textarea.input{min-height:110px;resize:vertical}
     if ("IntersectionObserver" in window) new IntersectionObserver(function(es){ visible = es[0].isIntersecting; sync(); }, {threshold:.35}).observe(stage);
     else visible = true;
     if (reduce) playBtn.hidden = true;
+    document.addEventListener("genera:lang", sync);
     layout(); sync();
 
     /* contador +800 */
@@ -1256,10 +1269,10 @@ textarea.input{min-height:110px;resize:vertical}
     e.preventDefault();
     var f = e.target, note = $("#formNote");
     if (!f.nombre.value.trim() || !f.telefono.value.trim()){
-      note.textContent = "⚠ Indica tu nombre y tu teléfono para que podamos llamarte."; note.style.color = "#ff8a7a";
+      note.textContent = T("⚠ Indica tu nombre y tu teléfono para que podamos llamarte.", "⚠ Please enter your name and phone number so we can call you."); note.style.color = "#ff8a7a";
       (f.nombre.value.trim() ? f.telefono : f.nombre).focus(); return;
     }
-    note.style.color = ""; note.textContent = "Abriendo tu correo para enviar la solicitud…";
+    note.style.color = ""; note.textContent = T("Abriendo tu correo para enviar la solicitud…", "Opening your email to send the request…");
     var bodyTxt = "Nombre: " + f.nombre.value + "\nTeléfono: " + f.telefono.value + "\nLocalidad: " + f.localidad.value + "\n\n" + f.mensaje.value;
     window.location.href = "mailto:jorge@genera-energia.net?subject=" + encodeURIComponent("Solicitud de estudio solar · " + f.nombre.value) + "&body=" + encodeURIComponent(bodyTxt);
   });
@@ -1274,6 +1287,58 @@ textarea.input{min-height:110px;resize:vertical}
   }
   $("#totop").addEventListener("click", function(){ window.scrollTo({top:0, behavior: reduce ? "auto" : "smooth"}); });
   $("#wa").addEventListener("click", function(e){ if (this.getAttribute("href") === "#") e.preventDefault(); });
+})();
+</script>
+<!-- Traducción ES / EN -->
+<script>
+(function(){
+  "use strict";
+  var EN = {"Saltar al contenido": "Skip to content", "Equipo": "Team", "Servicios": "Services", "Nuestro trabajo": "Our work", "Contacto": "Contact", "Estudio gratuito": "Free assessment", "Placas solares · Marina Alta": "Solar panels · Marina Alta", "ENERGÍA": "SOLAR", "SOLAR": "ENERGY", "QUE SE": "", "EN TU TEJADO": "^TED ON YOUR ROOF", "Diseñamos, instalamos y legalizamos tu": "We design, install and legalise your", "instalación solar con batería y cargador para el coche": "solar installation with battery and EV charger", ". Un solo equipo, de principio a fin, para que tú solo notes el ahorro.": ". One team from start to finish, so all you notice is the savings.", "Pide tu estudio gratuito": "Get your free assessment", "Calcula tu ahorro": "Calculate your savings", "Sin compromiso": "No obligation", "Llave en mano": "Turnkey", "Papeleo incluido": "Paperwork included", "El sol, hoy en Dénia": "The sun today in Dénia", "En vivo": "Live", "Ahora": "Now", "Horas de sol": "Hours of sun", "Un sistema, tres piezas": "One system, three parts", "Placas solares": "Solar panels", "Generan": "Generate", "Batería": "Battery", "Guarda": "Stores", "Cargador VE": "EV charger", "Carga": "Charges", "Todos venden placas.": "Everyone sells panels.", "Nosotros diseñamos tu sistema.": "We design your system.", "Placas, batería y cargador no son tres productos sueltos: son un sistema que tiene que trabajar junto. Lo dimensionamos con tu consumo real para que aproveches cada rayo de sol.": "Panels, battery and charger aren't three separate products: they're one system that has to work together. We size it to your real consumption so you make the most of every ray of sun.", "Instalación fotovoltaica llave en mano": "Turnkey solar PV installation", "Guarda el sol para la noche": "Save the sun for the night", "Tu coche, cargado con tu sol": "Your car, charged by your sun", "Placas": "Panels", "Cargador": "Charger", "¿Lo quieres todo? Pack completo": "Want it all? Complete pack", "Las tres piezas diseñadas como un único sistema, con una sola instalación y un solo presupuesto.": "All three parts designed as a single system, with one installation and one quote.", "Pedir el pack completo": "Ask for the complete pack", "Sol": "Sun", "Excedentes a red": "Surplus to grid", "Casa": "Home", "Coche": "Car", "01 · Placas solares": "01 · Solar panels", "Tu tejado convertido en una pequeña central": "Your roof turned into a small power plant", "Estudiamos tu tejado, tu orientación y tu factura para diseñar una instalación a tu medida. Nos ocupamos de todo: desde el primer plano hasta dejarla legalizada y produciendo.": "We study your roof, its orientation and your bill to design an installation made to measure. We take care of everything: from the first drawing until it's legalised and producing.", "Estudio de tejado y consumo": "Roof and consumption study", "Diseño y dimensionado": "Design and sizing", "Instalación por nuestro equipo": "Installed by our own team", "Legalización y permisos": "Legalisation and permits", "02 · Batería": "02 · Battery", "El sol de mediodía, para cuando llegas a casa": "Midday sun, for when you get home", "La energía que no usas durante el día se queda en casa en lugar de irse a la red. Dimensionamos la batería según tu consumo de tarde y noche para que no pagues de más.": "The energy you don't use during the day stays at home instead of going to the grid. We size the battery to your evening and night consumption so you don't overpay.", "Capacidad según tu consumo": "Capacity sized to your use", "Para instalaciones nuevas o existentes": "For new or existing installations", "Más autoconsumo, menos factura": "More self-consumption, lower bills", "Control desde el móvil": "Control from your phone", "03 · Cargador VE": "03 · EV charger", "Llena el depósito con tu propio tejado": "Fill up from your own roof", "Instalamos el punto de carga en tu garaje o parking y lo conectamos a tu instalación solar para que el coche cargue, en lo posible, con tus excedentes.": "We install the charging point in your garage or parking space and connect it to your solar installation so your car charges, wherever possible, with your surplus.", "Instalación en garaje o parking": "Garage or parking installation", "Carga con excedentes solares": "Charging with solar surplus", "Integrado con placas y batería": "Integrated with panels and battery", "Tramitación de ayudas disponibles": "Help applying for available grants", "Un solo interlocutor": "One point of contact", "Una persona de referencia desde el estudio hasta que la instalación está produciendo.": "One person looking after you from the assessment until the installation is producing.", "Diseño con tus datos": "Designed with your data", "Partimos de tu factura y tu tejado, no de un pack estándar. Ni de más, ni de menos.": "We start from your bill and your roof, not a standard pack. No more, no less.", "Permisos, legalización y tramitación de ayudas: lo gestionamos nosotros.": "Permits, legalisation and grant applications: we handle it all.", "Seguimiento después": "Aftercare", "Seguimos a tu lado cuando la instalación ya está funcionando.": "We stay by your side once the installation is up and running.", "Te diseñamos el sistema completo,": "We'll design your complete system,", "sin compromiso.": "no obligation.", "Cuéntanos cómo es tu casa y cuánto pagas de luz. Te proponemos la combinación que más sentido tiene para ti.": "Tell us about your home and what you pay for electricity. We'll suggest the combination that makes most sense for you.", "Pedir estudio gratuito": "Get a free assessment", "Llamar ahora": "Call now", "Instalaciones que ya están": "Installations that are already", "generando energía.": "generating energy.", "Cada tejado es distinto. Estos son algunos de los proyectos que hemos hecho en la Marina Alta.": "Every roof is different. Here are some of the projects we've completed in the Marina Alta.", "Foto 01 · pendiente": "Photo 01 · coming soon", "Foto 02 · pendiente": "Photo 02 · coming soon", "Foto 03 · pendiente": "Photo 03 · coming soon", "Foto 04 · pendiente": "Photo 04 · coming soon", "Foto 05 · pendiente": "Photo 05 · coming soon", "Proyecto 01": "Project 01", "Proyecto 02": "Project 02", "Proyecto 03": "Project 03", "Proyecto 04": "Project 04", "Proyecto 05": "Project 05", "Vivienda unifamiliar": "Detached house", "Chalet": "Villa", "Empresa": "Business", "Vivienda": "Home", "Localidad · Placas + batería": "Town · Panels + battery", "Localidad · Placas": "Town · Panels", "Localidad · Autoconsumo": "Town · Self-consumption", "Localidad · Cargador VE": "Town · EV charger", "Localidad · Sistema completo": "Town · Complete system", "¿Quieres ver una instalación parecida a tu casa? Pregúntanos.": "Want to see an installation similar to your home? Just ask.", "Hablar con el equipo": "Talk to the team", "Opiniones en Google": "Google reviews", "Algunas de las opiniones de nuestros clientes después de más de": "Some of what our customers say after more than", "800 instalaciones.": "800 installations.", "Lo que dicen quienes ya generan su propia energía en la Marina Alta.": "What people already generating their own energy in the Marina Alta have to say.", "Instalaciones realizadas": "Installations completed", "Valoración en Google": "Google rating", "Xàbia · hace 2 semanas": "Xàbia · 2 weeks ago", "Moraira · hace 1 mes": "Moraira · 1 month ago", "Dénia · hace 1 mes": "Dénia · 1 month ago", "Calp · hace 2 meses": "Calp · 2 months ago", "Pego · hace 3 meses": "Pego · 3 months ago", "Desde el primer día nos lo explicaron todo con mucha claridad. La instalación se hizo en dos días, se encargaron de todo el papeleo y": "From day one they explained everything very clearly. The installation took two days, they handled all the paperwork and", "la factura de este verano no tiene nada que ver con la del año pasado.": "this summer's bill is nothing like last year's.", "Placas + batería": "Panels + battery", "Reseña de Google": "Google review", "Muy profesionales y puntuales. Como mi español no es muy bueno,": "Very professional and punctual. My Spanish isn't great, so", "me lo explicaron todo en inglés sin ningún problema.": "they explained everything in English without any problem.", "Ahora consulto en el móvil lo que producen las placas cada día.": "Now I check on my phone what the panels produce every day.", "Pedí presupuesto a tres empresas y": "I asked three companies for a quote and", "fueron los únicos que vinieron a ver el tejado": "they were the only ones who came to see the roof", "y me propusieron algo pensado para mi consumo. Ahora cargo el coche con mis propias placas.": "and proposed something designed around my consumption. Now I charge my car with my own panels.", "Sistema completo": "Complete system", "Pere y Anna": "Pere and Anna", "Trato cercano y cero sorpresas:": "Friendly service and zero surprises:", "el precio final fue exactamente el del presupuesto.": "the final price was exactly what we were quoted.", "El equipo dejó todo limpio y recogido al terminar. Los recomiendo sin dudarlo.": "The team left everything clean and tidy. I recommend them without hesitation.", "Añadimos la batería a la instalación que ya teníamos y ha sido un acierto.": "We added the battery to our existing installation and it was the right call.", "Por la noche tiramos de lo que han producido las placas durante el día.": "At night we run on what the panels produced during the day.", "Atentos en todo momento.": "Attentive at all times.", "Muy profesionales": "Very professional", "Puntuales": "Punctual", "Todo el papeleo incluido": "All paperwork included", "Precio cerrado": "Fixed price", "Trato cercano": "Friendly service", "Lo recomiendo": "Highly recommended", "Todo limpio y recogido": "Left clean and tidy", "Explicaciones claras": "Clear explanations", "Calculadora de ahorro": "Savings calculator", "¿Cuánto podrías": "How much could you", "ahorrar": "save", "con el sol?": "with the sun?", "Muy pronto podrás calcular aquí tu ahorro estimado en unos minutos, respondiendo a unas pocas preguntas sobre tu casa.": "Very soon you'll be able to calculate your estimated savings here in a few minutes, by answering a few questions about your home.", "Cuéntanos cómo es tu casa": "Tell us about your home", "Indica tu consumo o tu factura": "Enter your consumption or your bill", "Recibe tu ahorro estimado al momento": "Get your estimated savings instantly", "Mientras tanto, pide tu estudio": "Meanwhile, get your assessment", "Próximamente": "Coming soon", "Espacio reservado": "Reserved space", "Hablemos de": "Let's talk about", "tu tejado.": "your roof.", "Teléfono": "Phone", "Correo": "Email", "Nombre": "Name", "Localidad": "Town", "¿Qué te gustaría instalar?": "What would you like to install?", "Enviar": "Send", "Preguntas frecuentes": "FAQ", "Lo que más nos preguntan": "What people ask us most", "¿Cuánto cuesta instalar placas solares?": "How much does a solar installation cost?", "Depende del tamaño de tu tejado, de tu consumo y de si añades batería o cargador. Tras el estudio te damos un presupuesto cerrado, sin sorpresas.": "It depends on the size of your roof, your consumption and whether you add a battery or charger. After the assessment we give you a fixed quote, with no surprises.", "¿En cuánto tiempo se amortiza?": "How long does it take to pay for itself?", "Varía según tu consumo, la orientación del tejado y el precio de la luz. En el estudio te calculamos el retorno de tu caso concreto.": "It varies with your consumption, roof orientation and electricity prices. In the assessment we calculate the payback for your specific case.", "¿Necesito batería?": "Do I need a battery?", "No es obligatoria. Te la recomendamos si consumes mucho por la tarde o la noche; si no, puede tener más sentido empezar solo con placas y añadirla después.": "It isn't required. We recommend one if you use a lot of power in the evening or at night; otherwise it may make more sense to start with panels only and add it later.", "¿Qué pasa con la energía que no consumo?": "What happens to the energy I don't use?", "Con la compensación de excedentes, la energía que vuelcas a la red se descuenta de tu factura. Con batería, además, puedes guardarla para usarla después.": "With surplus compensation, the energy you export to the grid is deducted from your bill. With a battery, you can also store it to use later.", "¿Os encargáis de los permisos y las ayudas?": "Do you handle permits and grants?", "Sí. Gestionamos la legalización de la instalación y te informamos de las ayudas disponibles en cada momento.": "Yes. We handle the legalisation of the installation and keep you informed about the grants available at any time.", "¿Cuánto se tarda en instalar?": "How long does installation take?", "Depende del proyecto. En el presupuesto te damos fechas concretas para la instalación y la puesta en marcha.": "It depends on the project. Your quote includes specific dates for installation and start-up.", "¿Hablamos de tu tejado?": "Shall we talk about your roof?", "El sol ya está puesto.": "The sun is already up there.", "Pide tu estudio gratuito · Pide tu estudio gratuito ·": "Get your free assessment · Get your free assessment ·", "Ahora mismo en la Marina Alta": "Right now in the Marina Alta", "Genera Energía · Instalación de placas solares en la Marina Alta": "Genera Energía · Solar panel installation in the Marina Alta", "Aviso legal": "Legal notice", "Privacidad": "Privacy", "Cookies": "Cookies", "Volver arriba": "Back to top", "Escríbenos por WhatsApp": "Message us on WhatsApp", "@Genera Energía, inicio": "Genera Energía, home", "@Principal": "Main", "@Abrir menú": "Open menu", "@Cerrar menú": "Close menu", "@Curva de radiación solar estimada para hoy en la Marina Alta": "Estimated solar radiation curve for today in the Marina Alta", "@Piezas del sistema": "System parts", "@5 de 5 estrellas": "5 out of 5 stars", "@Reseñas de clientes": "Customer reviews", "@1 de 5": "1 of 5", "@2 de 5": "2 of 5", "@3 de 5": "3 of 5", "@4 de 5": "4 of 5", "@5 de 5": "5 of 5", "@Reseña anterior": "Previous review", "@Elegir reseña": "Choose review", "@Reseña 1": "Review 1", "@Reseña 2": "Review 2", "@Reseña 3": "Review 3", "@Reseña 4": "Review 4", "@Reseña 5": "Review 5", "@Pausar reseñas": "Pause reviews", "@Reproducir reseñas": "Play reviews", "@Reseña siguiente": "Next review", "@Espacio reservado para la calculadora de ahorro": "Reserved space for the savings calculator", "@Tu nombre": "Your name", "@Placas, batería, cargador… o cuéntanos tu caso": "Panels, battery, charger… or tell us about your case", "@Pide tu estudio gratuito": "Get your free assessment", "@Recorrido del sol hoy sobre la Marina Alta": "Path of the sun today over the Marina Alta", "@Escríbenos por WhatsApp": "Message us on WhatsApp", "@Cambiar idioma": "Change language", "@reseña": "review", "@carrusel": "carousel"};
+  var META = {es:{title:document.title, desc:document.querySelector('meta[name="description"]').getAttribute("content")},
+    en:{title:"Genera Energía · Solar panel installation in the Marina Alta", desc:"Solar panels, batteries and EV chargers installed in the Marina Alta. We design your system around your real consumption and take care of everything."}};
+  var SKIP = "#hudNow,#hudHours,#sunMsg,#sunSub,#sunRise,#sunSet,#clock,#formNote,#year,[data-count],script,style,.lang";
+  var ATTRS = ["aria-label","placeholder","alt","title","aria-roledescription"];
+  var texts = [], attrs = [], collected = false;
+  function collect(){
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {acceptNode:function(n){
+      var p = n.parentElement; if (!p || p.closest(SKIP)) return NodeFilter.FILTER_REJECT;
+      return n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; }});
+    var n; while ((n = w.nextNode())) texts.push([n, n.nodeValue]);
+    document.querySelectorAll("[" + ATTRS.join("],[") + "]").forEach(function(el){
+      if (el.closest("#burger,#revPlay,.lang")) return;
+      ATTRS.forEach(function(a){ var v = el.getAttribute(a); if (v && v.trim()) attrs.push([el, a, v]); });
+    });
+    collected = true;
+  }
+  function tr(orig, isAttr){
+    var key = orig.replace(/\s+/g, " ").trim(), v = EN[(isAttr ? "@" : "") + key];
+    if (v === undefined) return orig;
+    if (isAttr) return v;
+    var lead = orig.match(/^\s*/)[0], trail = orig.match(/\s*$/)[0];
+    if (v.charAt(0) === "^") { v = v.slice(1); lead = ""; }
+    if (v === "") return "";
+    return lead + v + trail;
+  }
+  var box = document.getElementById("lang");
+  function setLang(l, save){
+    if (!collected) collect();
+    window.GENERA_LANG = l;
+    texts.forEach(function(t){ t[0].nodeValue = l === "en" ? tr(t[1], false) : t[1]; });
+    attrs.forEach(function(a){ a[0].setAttribute(a[1], l === "en" ? tr(a[2], true) : a[2]); });
+    document.documentElement.lang = l;
+    document.title = META[l].title;
+    document.querySelector('meta[name="description"]').setAttribute("content", META[l].desc);
+    box.setAttribute("data-lang", l);
+    box.setAttribute("aria-label", l === "en" ? "Change language" : "Cambiar idioma");
+    box.querySelectorAll("button").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-l") === l ? "true" : "false"); });
+    if (save) { try { localStorage.setItem("genera_lang", l); } catch(e){} }
+    document.dispatchEvent(new CustomEvent("genera:lang", {detail:l}));
+  }
+  box.addEventListener("click", function(e){
+    var b = e.target.closest("button[data-l]"); if (!b) return;
+    var l = b.getAttribute("data-l"); if (l !== window.GENERA_LANG || !collected) setLang(l, true);
+  });
+  if (window.GENERA_LANG === "en") setLang("en", false);
 })();
 </script>
 </body>
