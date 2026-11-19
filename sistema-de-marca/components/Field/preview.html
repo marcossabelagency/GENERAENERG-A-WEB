@@ -1,0 +1,17 @@
+<!-- @dsCard group="Formularios" height=330 -->
+<div class="g-root" style="padding:32px;background:var(--surface-000);min-height:100%">
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:860px">
+  <div style="display:flex;flex-direction:column;gap:20px">
+   <label class="g-field"><span class="g-field__label">Factura mensual de luz</span><input class="g-input" inputmode="numeric" placeholder="Ej. 120 €"><span class="g-field__hint">La media de tus últimos meses.</span></label>
+   <label class="g-field"><span class="g-field__label">Código postal</span><input class="g-input" value="0370" aria-invalid="true"><span class="g-field__error">⚠ Introduce un código postal de 5 cifras.</span></label>
+  </div>
+  <div class="g-field"><span class="g-field__label">Tipo de inmueble</span>
+   <div class="g-options" data-single>
+    <button type="button" class="g-option" aria-pressed="true"><span class="g-option__title">Chalet</span><span class="g-option__meta">Tejado propio</span></button>
+    <button type="button" class="g-option" aria-pressed="false"><span class="g-option__title">Adosado</span><span class="g-option__meta">Cubierta compartida</span></button>
+    <button type="button" class="g-option" aria-pressed="false"><span class="g-option__title">Empresa</span><span class="g-option__meta">Nave o local</span></button>
+   </div>
+  </div>
+ </div>
+</div>
+<script>window.Genera && window.Genera.init(document);</script>

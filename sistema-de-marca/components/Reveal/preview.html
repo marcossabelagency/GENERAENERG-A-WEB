@@ -1,0 +1,11 @@
+<!-- @dsCard group="Movimiento" height=260 -->
+<div class="g-root" style="padding:32px;background:var(--surface-000);min-height:100%">
+ <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px" id="demo">
+  <div class="g-reveal" style="--i:0;padding:24px;border-radius:var(--radius-lg);background:var(--surface-100);border:1px solid var(--line)"><span class="g-eyebrow g-eyebrow--plain">up</span><p class="g-card__text">Por defecto: sube 28px.</p></div>
+  <div class="g-reveal" data-reveal="fade" style="--i:1;padding:24px;border-radius:var(--radius-lg);background:var(--surface-100);border:1px solid var(--line)"><span class="g-eyebrow g-eyebrow--plain">fade</span><p class="g-card__text">Solo opacidad: textos largos.</p></div>
+  <div class="g-reveal" data-reveal="scale" style="--i:2;padding:24px;border-radius:var(--radius-lg);background:var(--surface-inverse);color:var(--ink-inverse)"><span class="g-eyebrow g-eyebrow--plain" style="color:inherit">scale</span><p style="margin:12px 0 0;font-size:16px">Fotos y bloques grandes.</p></div>
+  <div class="g-reveal" data-reveal="left" style="--i:3;padding:24px;border-radius:var(--radius-lg);background:var(--lime);color:var(--on-accent)"><span class="g-eyebrow g-eyebrow--plain" style="color:inherit">left</span><p style="margin:12px 0 0;font-size:16px">Titulares de sección.</p></div>
+ </div>
+ <button class="g-btn g-btn--ghost g-btn--sm" style="margin-top:24px" onclick="document.querySelectorAll('#demo .g-reveal').forEach(function(e){e.classList.remove('is-visible')});setTimeout(function(){window.Genera.reveal(document)},400)">Repetir animación <span class="g-btn__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+</div>
+<script>window.Genera && window.Genera.init(document);</script>
