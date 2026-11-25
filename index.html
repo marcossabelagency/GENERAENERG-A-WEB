@@ -127,53 +127,76 @@ h1,h2,h3,h4,p{margin:0}
 /* =========================================================
    HERO
    ========================================================= */
-.hero{position:relative;color:var(--d-ink);background:#000;padding:clamp(120px,14vw,170px) 0 clamp(56px,6vw,88px);overflow:hidden;isolation:isolate}
+.hero{position:relative;color:var(--d-ink);background:#000;padding:clamp(112px,9vw,128px) 0 clamp(56px,6vw,88px);overflow:hidden;isolation:isolate}
 .hero__bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .hero__bg::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(55% 45% at 72% 30%,rgba(182,204,0,.16) 0%,transparent 70%),
-  radial-gradient(45% 40% at 10% 90%,rgba(12,103,78,.35) 0%,transparent 70%)}
+  radial-gradient(50% 40% at 50% 62%,rgba(182,204,0,.14) 0%,transparent 70%),
+  radial-gradient(45% 40% at 8% 95%,rgba(12,103,78,.35) 0%,transparent 70%),
+  radial-gradient(45% 40% at 92% 95%,rgba(12,103,78,.3) 0%,transparent 70%)}
 .hero__bg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(80% 70% at 50% 40%,#000 30%,transparent 80%);mask-image:radial-gradient(80% 70% at 50% 40%,#000 30%,transparent 80%)}
 .hero__particles{position:absolute;inset:0;width:100%;height:100%}
-.hero__meta{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:clamp(16px,2vw,28px);border-bottom:1px solid var(--d-line);margin-bottom:clamp(20px,2.4vw,32px)}
-.hero__coords{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--d-muted);font-variant-numeric:tabular-nums}
+.hero__top{display:flex;flex-direction:column;align-items:center;text-align:center}
 .hero__giant{font-family:var(--display);font-weight:400;line-height:.98;letter-spacing:0;white-space:nowrap}
-.hero__l1{display:block;font-size:calc(var(--cw) / 11.95);color:#fff}
+.hero__l1{display:block;font-size:calc(var(--cw) / 12.6);color:#fff;background:linear-gradient(180deg,#fff 30%,#c9d2a6 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hero__l1 .w{display:inline-block}
-.hero__l2{display:block;margin-top:.5em;font-size:calc(var(--cw) / 11.95 * .42);line-height:1.2;color:#8a8a83;white-space:normal}
-.hero__l2 em{font-style:normal;color:var(--lime)}
-.hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,.95fr);gap:clamp(24px,3vw,48px);align-items:center;margin-top:clamp(36px,4vw,64px)}
-.hero__copy{display:flex;flex-direction:column;gap:28px}
-.hero__copy p{font-size:clamp(16px,1.25vw,19px);line-height:1.65;color:#cfcfc8;max-width:44ch}
-.hero__copy p strong{color:#fff;font-weight:600}
-.hero__ctas{display:flex;flex-wrap:wrap;gap:12px}
-.hero__trust{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:0;padding:0;font-size:13px;font-weight:600;color:#d8d8d2}
+.hero__l2{display:block;margin-top:.55em;font-size:calc(var(--cw) / 12.6 * .4);line-height:1.2;color:#8a8a83;white-space:normal;letter-spacing:.04em}
+.hero__l2 em{font-style:normal;color:var(--lime);text-shadow:0 0 28px rgba(182,204,0,.45)}
+.hero__lead{margin-top:clamp(22px,2.4vw,32px);font-size:clamp(16px,1.25vw,19px);line-height:1.65;color:#cfcfc8;max-width:58ch}
+.hero__lead strong{color:#fff;font-weight:600}
+.hero__ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:clamp(26px,2.6vw,36px)}
+.hero__trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;list-style:none;margin:22px 0 0;padding:0;font-size:13px;font-weight:600;color:#d8d8d2}
 .hero__trust li{display:inline-flex;align-items:center;gap:8px}
 .hero__trust svg{color:var(--lime);flex:none}
 
-/* Visual central: panel solar 3D + símbolo */
-.viz{position:relative;padding:0 18px 18px 0}
-.viz__plate{position:absolute;inset:18px 0 0 18px;border-radius:48px 8px 48px 8px;border:1px solid rgba(182,204,0,.35);background:linear-gradient(160deg,rgba(182,204,0,.08),transparent 60%)}
-.viz__card{position:relative;aspect-ratio:1/1.02;border-radius:48px 8px 48px 8px;overflow:hidden;background:radial-gradient(90% 70% at 50% 0%,#14251b 0%,#070908 70%);border:1px solid rgba(255,255,255,.09);box-shadow:var(--sh3d);transform-style:preserve-3d}
-.viz__scene{position:absolute;inset:0;display:grid;place-items:center;perspective:900px}
-.panel{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;width:78%;padding:10px;border-radius:10px;background:#0c120f;border:1px solid rgba(255,255,255,.08);transform:translateY(18%) rotateX(58deg) rotateZ(-32deg);transform-style:preserve-3d;box-shadow:0 60px 80px -30px rgba(0,0,0,.9);transition:transform .8s var(--ease)}
-.panel i{position:relative;aspect-ratio:1/1.5;border-radius:3px;background:
-  linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px) 0 0/100% 33.4%,
-  linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px) 0 0/50% 100%,
-  linear-gradient(160deg,#16261e,#0b1410);
-  animation:cell 4.8s var(--ease-io) infinite;animation-delay:calc(var(--d) * 110ms)}
-@keyframes cell{0%,62%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);filter:none}
-  20%{box-shadow:inset 0 0 0 1px rgba(182,204,0,.9),0 0 18px rgba(182,204,0,.55);filter:brightness(1.9) saturate(1.4) hue-rotate(10deg)}}
-.viz__sun{position:absolute;top:9%;left:50%;width:62%;aspect-ratio:1;transform:translateX(-50%);pointer-events:none}
-.viz__sun circle{fill:none;stroke:rgba(182,204,0,.28);stroke-dasharray:2 10;transform-origin:50% 50%}
-.viz__sun .r1{animation:spin 40s linear infinite}
-.viz__sun .r2{animation:spin 70s linear infinite reverse;stroke:rgba(255,255,255,.12);stroke-dasharray:1 6}
+/* Escenario: placas solares animadas */
+.stage{position:relative;margin-top:clamp(40px,5vw,72px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.3fr) minmax(0,1fr);align-items:end;gap:clamp(16px,2vw,28px)}
+.stage>.hud__card{position:relative;z-index:3}
+.stage>.hud__card:first-child{align-self:center;margin-bottom:8%}
+.stage>.hud__card:last-child{align-self:center;margin-bottom:-2%}
+.solar{position:relative;aspect-ratio:1.55/1;perspective:1500px;perspective-origin:50% 20%}
+.solar__sun{position:absolute;left:50%;top:-6%;width:46%;aspect-ratio:1;transform:translateX(-50%);pointer-events:none}
+.solar__core{position:absolute;inset:30%;border-radius:50%;background:radial-gradient(circle closest-side,#fbffd9 0%,#e3f25a 30%,#b6cc00 55%,rgba(182,204,0,0) 72%);filter:blur(2px);animation:sunPulse 5s ease-in-out infinite}
+.solar__halo{position:absolute;inset:-30%;border-radius:50%;background:radial-gradient(circle closest-side,rgba(182,204,0,.32) 0%,rgba(182,204,0,.1) 45%,transparent 100%)}
+.solar__rays{position:absolute;inset:-10%;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(214,232,90,.16) 0deg 3deg,transparent 3deg 15deg);-webkit-mask-image:radial-gradient(circle closest-side,transparent 34%,#000 46%,transparent 96%);mask-image:radial-gradient(circle closest-side,transparent 34%,#000 46%,transparent 96%);animation:spin 60s linear infinite}
+.solar__orbit{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.solar__orbit circle{fill:none;stroke:rgba(182,204,0,.3);stroke-dasharray:2 10;transform-origin:50% 50%}
+.solar__orbit .r1{animation:spin 40s linear infinite}
+.solar__orbit .r2{animation:spin 70s linear infinite reverse;stroke:rgba(255,255,255,.14);stroke-dasharray:1 6}
 @keyframes spin{to{transform:rotate(360deg)}}
-.viz__logo{position:absolute;top:13%;left:50%;width:30%;transform:translateX(-50%);filter:drop-shadow(0 0 28px rgba(182,204,0,.45)) drop-shadow(0 30px 30px rgba(0,0,0,.7));animation:bob 6s ease-in-out infinite}
-@keyframes bob{50%{transform:translateX(-50%) translateY(-10px)}}
-.viz__beam{position:absolute;top:30%;left:50%;width:2px;height:28%;transform:translateX(-50%);background:linear-gradient(var(--lime),transparent);opacity:.7;filter:blur(.5px)}
-.viz__tag{position:absolute;display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.1);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#e6e6e0}
-.viz__tag--tl{top:18px;left:18px}
-.viz__tag--br{bottom:18px;right:18px}
+@keyframes sunPulse{50%{transform:scale(1.08);filter:blur(3px) brightness(1.1)}}
+.solar__beam{position:absolute;left:50%;top:24%;width:70%;height:46%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(214,232,90,.2),rgba(214,232,90,0));clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);filter:blur(6px);pointer-events:none;animation:beam 5s ease-in-out infinite}
+@keyframes beam{50%{opacity:.55}}
+.solar__floor{position:absolute;left:-12%;right:-12%;bottom:-4%;height:42%;background-image:linear-gradient(rgba(182,204,0,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(182,204,0,.16) 1px,transparent 1px);background-size:56px 56px;transform:rotateX(72deg);transform-origin:50% 100%;-webkit-mask-image:radial-gradient(60% 80% at 50% 100%,#000 10%,transparent 75%);mask-image:radial-gradient(60% 80% at 50% 100%,#000 10%,transparent 75%)}
+.solar__shadow{position:absolute;left:12%;right:12%;bottom:2%;height:14%;border-radius:50%;background:radial-gradient(closest-side,rgba(182,204,0,.28),rgba(0,0,0,0));filter:blur(14px)}
+.array{position:absolute;left:6%;right:6%;bottom:9%;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4%;transform:rotateX(var(--rx,38deg)) rotateY(var(--ry,0deg));transform-origin:50% 100%;transform-style:preserve-3d;transition:transform .9s var(--ease)}
+.pv{position:relative;aspect-ratio:6/10;border-radius:4px;padding:2.4%;overflow:hidden;
+  background:linear-gradient(135deg,#dfe5e8 0%,#8c979d 30%,#e9eef0 52%,#6f7a80 80%,#c3cbcf 100%);
+  box-shadow:0 30px 50px -18px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.6)}
+.pv__cells{position:relative;width:100%;height:100%;border-radius:2px;overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(214,224,230,.5) 1.5px,transparent 1.5px) 0 0/calc(100% / 6) 100%,
+    linear-gradient(rgba(214,224,230,.5) 1.5px,transparent 1.5px) 0 0/100% calc(100% / 10),
+    linear-gradient(90deg,transparent 31%,rgba(255,255,255,.13) 31% 33%,transparent 33% 65%,rgba(255,255,255,.13) 65% 67%,transparent 67%) 0 0/calc(100% / 6) 100%,
+    radial-gradient(120% 70% at 30% 0%,rgba(120,170,200,.28),transparent 60%),
+    linear-gradient(170deg,#18304a 0%,#0c1b2c 45%,#070f19 100%)}
+.pv__cells::before{content:"";position:absolute;inset:0;background:
+    linear-gradient(90deg,rgba(182,204,0,.85) 1.5px,transparent 1.5px) 0 0/calc(100% / 6) 100%,
+    linear-gradient(rgba(182,204,0,.85) 1.5px,transparent 1.5px) 0 0/100% calc(100% / 10),
+    linear-gradient(170deg,rgba(182,204,0,.45),rgba(91,176,64,.18));
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,#000 22%,transparent 34%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,#000 22%,transparent 34%);
+  -webkit-mask-size:100% 300%;mask-size:100% 300%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  animation:charge 4.6s var(--ease-io) infinite;animation-delay:var(--d,0s);mix-blend-mode:screen}
+.pv__cells::after{content:"";position:absolute;inset:-20% -60%;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.04) 44%,rgba(255,255,255,.42) 50%,rgba(255,255,255,.04) 56%,transparent 60%);transform:translateX(-70%);animation:glint 6s var(--ease-io) infinite;animation-delay:var(--d,0s)}
+@keyframes charge{0%{-webkit-mask-position:0 100%;mask-position:0 100%;opacity:0}12%{opacity:1}70%{-webkit-mask-position:0 0;mask-position:0 0;opacity:1}100%{-webkit-mask-position:0 0;mask-position:0 0;opacity:0}}
+@keyframes glint{0%,30%{transform:translateX(-70%)}75%,100%{transform:translateX(70%)}}
+.array__rail{position:absolute;left:-2%;right:-2%;height:2px;bottom:-3%;border-radius:2px;background:linear-gradient(90deg,transparent,var(--lime) 20%,var(--lime) 80%,transparent);box-shadow:0 0 18px rgba(182,204,0,.8);opacity:.85}
+.array__rail::after{content:"";position:absolute;top:-2px;width:18%;height:6px;border-radius:6px;background:radial-gradient(closest-side,#fbffd9,rgba(182,204,0,0));animation:flowR 2.8s linear infinite}
+@keyframes flowR{from{left:-18%}to{left:100%}}
+.solar__tag{position:absolute;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#e6e6e0;white-space:nowrap}
+.solar__tag b{font-family:var(--display);font-weight:400;letter-spacing:0;color:var(--lime);font-size:12px}
+.solar__tag--a{left:4%;top:30%;animation:float 7s ease-in-out infinite}
+.solar__tag--b{right:4%;top:22%;animation:float 7s ease-in-out infinite -3.5s}
+@keyframes float{50%{transform:translateY(-8px)}}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(182,204,0,.6);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(182,204,0,0)}100%{box-shadow:0 0 0 0 rgba(182,204,0,0)}}
 
@@ -521,9 +544,9 @@ textarea.input{min-height:110px;resize:vertical}
    RESPONSIVE
    ========================================================= */
 @media (max-width:1180px){
-  .hero__grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  .hero__copy{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 40px}
-  .hero__copy p{max-width:52ch}
+  .stage{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}
+  .stage .solar{grid-column:1/-1;order:-1;width:min(820px,100%);margin-inline:auto}
+  .stage>.hud__card:first-child,.stage>.hud__card:last-child{align-self:stretch;margin:0}
   .why{grid-template-columns:repeat(2,minmax(0,1fr))}
   .bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;grid-auto-rows:clamp(220px,32vw,300px)}
   .work:nth-child(1){grid-column:1/-1;grid-row:auto}
@@ -548,15 +571,18 @@ textarea.input{min-height:110px;resize:vertical}
   .sunw{grid-template-columns:1fr}
 }
 @media (max-width:720px){
-  .hero__meta .hero__coords{display:none}
   .hero__l1{font-size:calc(var(--cw) / 6.5);white-space:normal}
   .hero__l1 .w{display:block}
   .hero__l2{font-size:clamp(17px,5vw,22px)}
-  .hero__grid{grid-template-columns:1fr}
-  .hero__copy{flex-direction:column;align-items:stretch}
+  .hero__ctas{width:100%;flex-direction:column}
   .hero__ctas .btn{width:100%;justify-content:space-between}
-  .viz{max-width:440px;width:100%;margin-inline:auto}
-  .hud{display:grid;grid-template-columns:1fr}
+  .stage{grid-template-columns:1fr}
+  .solar{aspect-ratio:1.25/1}
+  .solar__sun{width:62%;top:-4%}
+  .array{left:2%;right:2%}
+  .solar__tag{font-size:10px;padding:6px 10px}
+  .solar__tag--a{top:auto;bottom:-2%;left:0}
+  .solar__tag--b{top:auto;bottom:-2%;right:0}
   .checks{grid-template-columns:1fr}
   .why{grid-template-columns:1fr}
   .bento{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:calc(var(--pad) * -1);padding:4px var(--pad) 14px;scrollbar-width:none}
@@ -621,19 +647,13 @@ textarea.input{min-height:110px;resize:vertical}
 <section class="hero" id="top" aria-labelledby="heroTitle">
   <div class="hero__bg" aria-hidden="true"><canvas class="hero__particles" id="particles"></canvas></div>
   <div class="wrap">
-    <div class="hero__meta h-in" style="--dl:.05s">
-      <span class="eyebrow">Placas solares · Marina Alta</span>
-      <span class="hero__coords" id="clock">38.84° N · 0.10° E · Dénia</span>
-    </div>
-    <h1 class="hero__giant" id="heroTitle">
-      <span class="hero__l1"><span class="w" style="--dl:.15s">ENERGÍA</span> <span class="w" style="--dl:.28s">SOLAR</span></span>
-      <span class="hero__l2 h-in" style="--dl:.5s">QUE SE <em>GENERA</em> EN TU TEJADO</span>
-    </h1>
-
-    <div class="hero__grid">
-      <div class="hero__copy">
-        <p class="h-in" style="--dl:.65s">Diseñamos, instalamos y legalizamos tu <strong>instalación solar con batería y cargador para el coche</strong>. Un solo equipo, de principio a fin, para que tú solo notes el ahorro.</p>
-        <div class="h-in" style="--dl:.78s;display:flex;flex-direction:column;gap:22px">
+    <div class="hero__top">
+      <h1 class="hero__giant" id="heroTitle">
+        <span class="hero__l1"><span class="w" style="--dl:.15s">ENERGÍA</span> <span class="w" style="--dl:.28s">SOLAR</span></span>
+        <span class="hero__l2 h-in" style="--dl:.5s">QUE SE <em>GENERA</em> EN TU TEJADO</span>
+      </h1>
+      <p class="hero__lead h-in" style="--dl:.62s">Diseñamos, instalamos y legalizamos tu <strong>instalación solar con batería y cargador para el coche</strong>. Un solo equipo, de principio a fin, para que tú solo notes el ahorro.</p>
+      <div class="h-in" style="--dl:.74s">
           <div class="hero__ctas">
             <a class="btn btn--accent on-dark" href="#contacto">Pide tu estudio gratuito <span class="btn__ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
             <a class="btn btn--ghost on-dark" href="#calculadora" style="--fg:#f5f5f2;--bd:#3a3a37">Calcula tu ahorro <span class="btn__ic" style="background:#1d1d1b;color:var(--lime)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M16 11v4"/></svg></span></a>
@@ -643,23 +663,11 @@ textarea.input{min-height:110px;resize:vertical}
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Llave en mano</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Papeleo incluido</li>
           </ul>
-        </div>
       </div>
+    </div>
 
-      <div class="viz h-in" style="--dl:.45s" id="viz" aria-hidden="true">
-        <div class="viz__plate"></div>
-        <div class="viz__card">
-          <svg class="viz__sun" viewBox="0 0 200 200"><circle class="r1" cx="100" cy="100" r="96"/><circle class="r2" cx="100" cy="100" r="74"/></svg>
-          <div class="viz__scene"><div class="panel" id="panel"></div></div>
-          <div class="viz__beam"></div>
-          <img class="viz__logo" src="assets/genera-simbolo.png" alt="" width="250" height="250">
-          <span class="viz__tag viz__tag--tl"><span class="dot"></span>Genera</span>
-          <span class="viz__tag viz__tag--br">Marina Alta</span>
-        </div>
-      </div>
-
-      <div class="hud">
-        <div class="hud__card h-in" style="--dl:.7s">
+    <div class="stage">
+        <div class="hud__card h-in" style="--dl:.95s">
           <div class="hud__head"><span>El sol, hoy en Dénia</span><span class="hud__live"><span class="dot"></span>En vivo</span></div>
           <div class="hud__nums">
             <div><div class="hud__k">Ahora</div><div class="hud__v" id="hudNow">—<small>%</small></div></div>
@@ -668,7 +676,29 @@ textarea.input{min-height:110px;resize:vertical}
           <div class="bars" id="bars" role="img" aria-label="Curva de radiación solar estimada para hoy en la Marina Alta"></div>
           <div class="bars__axis"><span>06</span><span>10</span><span>14</span><span>18</span><span>22</span></div>
         </div>
-        <div class="hud__card h-in" style="--dl:.85s">
+
+        <!-- Animación: sol + 3 placas solares (CSS puro, sin imágenes) -->
+        <div class="solar h-in" style="--dl:.4s" id="viz" aria-hidden="true">
+          <div class="solar__floor"></div>
+          <div class="solar__shadow"></div>
+          <div class="solar__sun">
+            <div class="solar__halo"></div>
+            <div class="solar__rays"></div>
+            <svg class="solar__orbit" viewBox="0 0 200 200"><circle class="r1" cx="100" cy="100" r="96"/><circle class="r2" cx="100" cy="100" r="74"/></svg>
+            <div class="solar__core"></div>
+          </div>
+          <div class="solar__beam"></div>
+          <div class="array" id="panel">
+            <div class="pv" style="--d:0s"><div class="pv__cells"></div></div>
+            <div class="pv" style="--d:.35s"><div class="pv__cells"></div></div>
+            <div class="pv" style="--d:.7s"><div class="pv__cells"></div></div>
+            <span class="array__rail"></span>
+          </div>
+          <span class="solar__tag solar__tag--a"><span class="dot"></span>Genera</span>
+          <span class="solar__tag solar__tag--b">Marina Alta</span>
+        </div>
+
+        <div class="hud__card h-in" style="--dl:1.05s">
           <div class="hud__head"><span>Un sistema, tres piezas</span></div>
           <ul class="flow">
             <li><span class="flow__ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18M5 16l2-9h10l2 9zM9 7l-1 9M15 7l1 9M6 11.5h12"/></svg></span>Placas solares<span class="flow__st">Generan</span><span class="flow__line"></span></li>
@@ -676,7 +706,6 @@ textarea.input{min-height:110px;resize:vertical}
             <li><span class="flow__ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14v-4l-2-5H7l-2 5zM7 17v2M17 17v2M5 13h14"/><circle cx="8.5" cy="14.8" r=".6"/><circle cx="15.5" cy="14.8" r=".6"/></svg></span>Cargador VE<span class="flow__st">Carga</span></li>
           </ul>
         </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1058,18 +1087,15 @@ function T(es, en){ return window.GENERA_LANG === "en" ? en : es; }
     rvs.forEach(function(el){ io.observe(el); });
   }
 
-  /* ---------- Panel solar 3D ---------- */
-  var panel = $("#panel"), cols = 6, rows = 5;
-  for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
-    var i = document.createElement("i"); i.style.setProperty("--d", r + c); panel.appendChild(i);
-  }
-  var viz = $("#viz");
-  if (!reduce && window.matchMedia("(hover:hover)").matches) {
-    viz.addEventListener("mousemove", function(e){
-      var b = viz.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - .5, y = (e.clientY - b.top) / b.height - .5;
-      panel.style.transform = "translateY(18%) rotateX(" + (58 - y * 10) + "deg) rotateZ(" + (-32 + x * 12) + "deg)";
+  /* ---------- Placas solares: inclinación con el ratón ---------- */
+  var panel = $("#panel"), hero = $("#top");
+  if (panel && !reduce && window.matchMedia("(hover:hover)").matches) {
+    hero.addEventListener("mousemove", function(e){
+      var b = hero.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - .5, y = (e.clientY - b.top) / b.height - .5;
+      panel.style.setProperty("--rx", (38 - y * 10).toFixed(2) + "deg");
+      panel.style.setProperty("--ry", (x * 14).toFixed(2) + "deg");
     });
-    viz.addEventListener("mouseleave", function(){ panel.style.transform = ""; });
+    hero.addEventListener("mouseleave", function(){ panel.style.removeProperty("--rx"); panel.style.removeProperty("--ry"); });
   }
 
   /* ---------- Partículas de la hero ---------- */
@@ -1154,7 +1180,7 @@ function T(es, en){ return window.GENERA_LANG === "en" ? en : es; }
     $("#sunMsg").textContent = msg; $("#sunSub").textContent = sub;
     $("#sunRise").textContent = T("Amanecer ", "Sunrise ") + hhmm(info.rise);
     $("#sunSet").textContent = T("Atardecer ", "Sunset ") + hhmm(info.set);
-    $("#clock").textContent = "38.84° N · 0.10° E · Dénia · " + hhmm(now);
+    var clk = $("#clock"); if (clk) clk.textContent = "38.84° N · 0.10° E · Dénia · " + hhmm(now);
   }
   renderSun(); setInterval(renderSun, 60000);
   document.addEventListener("genera:lang", function(){ renderSun(); burger.setAttribute("aria-label", menu.classList.contains("is-open") ? T("Cerrar menú","Close menu") : T("Abrir menú","Open menu")); var fn = $("#formNote"); fn.style.color = ""; fn.textContent = T("Te respondemos lo antes posible. Sin compromiso.", "We'll get back to you as soon as possible. No obligation."); });
